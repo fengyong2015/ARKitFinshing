@@ -1,0 +1,39 @@
+material 
+{
+
+	technique 0
+	{
+
+		pass 0
+		{
+
+			vertexShader = shaders/fish_basic.vsh
+			fragmentShader = shaders/fish_basic.fsh
+			defines = MAXANIMLIGHT 1;SKINNING_JOINT_COUNT 32; MAXPOINTLIGHT 8
+
+			sampler u_diffuseTexture
+			{
+				path = fish/jinqiangyu/jinqiangyu_red.png
+				mipmap = false
+				wrapS = CLAMP
+				wrapT = CLAMP
+				minFilter = LINEAR
+				magFilter = LINEAR
+			}
+
+			renderState 
+			{
+				blend = true
+				srcBlend = SRC_ALPHA
+				dstBlend = ONE_MINUS_SRC_ALPHA
+				cullFace = true
+				depthTest = true
+				depthWrite = true
+			}
+
+		}
+
+	}
+
+}
+
