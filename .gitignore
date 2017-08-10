@@ -1,0 +1,85 @@
+ty generated #
+# =============== #
+Temp/
+Obj/
+UnityGenerated/
+Library/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =============== #
+# Xcode generated #
+# =============== #
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.xcuserstate
+Xcode/
+
+# ============================================ #
+# Hold some asset files in Library folder      #
+# -- EditorUserBuildSettings.asset             #
+#    # record platform setting                 #
+# ============================================ #
+!**/Library/
+**/Library/**
+!**/Library/EditorUserBuildSettings.asset
+
+##########################
+# Streaming Assetbundles #
+##########################
+Assets/StreamingAssets/assetbundles_ios
+Assets/StreamingAssets/assetbundles_ios.meta
+Assets/StreamingAssets/assetbundles_android
+Assets/StreamingAssets/assetbundles_android.meta
+
+
+###########
+# Tabtale #
+###########
+Assets/Tabtale/UnityCore
+Assets/Tabtale/GameFramework
+
+###########
+# Tabtale #
+###########
+Assets/Tabtale/UnityCore
+Assets/Tabtale/GameFramework
+Assets/Tabtale/UnityPackages
+
+
+Assets/ZZTest
+Assets/ZZTest.meta
