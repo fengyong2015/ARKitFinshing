@@ -24,11 +24,9 @@
 	///狮子鱼
 	shiziyu = 11,
 	///天使鱼 
-	tainshiyu = 12,
+	tianshiyu = 12,
 	///小丑鱼
 	xiaochouyu = 13,
 	///小黄鱼
 	xiaohuangyu = 14,
-	///小绿鱼
-	xiaolvyu = 15
 }

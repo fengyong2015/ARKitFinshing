@@ -7,4 +7,10 @@ AnimatorOverrideController:
   m_PrefabInternal: {fileID: 0}
   m_Name: dianmanyu
   m_Controller: {fileID: 9100000, guid: 6570fb9eaeb1344e1b46774f0ed7f0b3, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400006, guid: a14200a24680c41e180a2f517ffca1e4, type: 3}
+    m_OverrideClip: {fileID: 7400004, guid: f16791233a72742b68186b35916de0b2, type: 3}
+  - m_OriginalClip: {fileID: 7400004, guid: a14200a24680c41e180a2f517ffca1e4, type: 3}
+    m_OverrideClip: {fileID: 7400002, guid: f16791233a72742b68186b35916de0b2, type: 3}
+  - m_OriginalClip: {fileID: 7400002, guid: a14200a24680c41e180a2f517ffca1e4, type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: f16791233a72742b68186b35916de0b2, type: 3}
