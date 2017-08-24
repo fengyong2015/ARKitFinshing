@@ -1,4 +1,4 @@
-﻿public enum FinishType
+﻿public enum FishType
 {
 	None = 0,
 	///扯旗鱼
@@ -18,7 +18,7 @@
 	///剑鱼 
 	jianyu = 8,
 	///金枪鱼 
-	jinqingyu = 9,
+	jinqiangyu = 9,
 	///鲨鱼 
 	shayu = 10,
 	///狮子鱼
@@ -30,3 +30,4 @@
 	///小黄鱼
 	xiaohuangyu = 14,
 }
+
