@@ -7,7 +7,7 @@ public class GameFish:MonoBehaviour
 	{
 		string tFishPath = string.Format ("fish/{0}", pFinshType.ToString ());
 		GameObject tFish = Resources.Load<GameObject> (tFishPath);
-		Debug.LogError (tFishPath);
+//		Debug.LogError (tFishPath);
 		tFish = Instantiate (tFish, pTrans);
 		GameFish tGameFish = tFish.AddComponent<GameFish> ();
 		tGameFish.Init (pFinshType);
@@ -58,9 +58,9 @@ public class GameFish:MonoBehaviour
 
 	void LateUpdate ()
 	{
-		MoveSpeed = Mathf.Lerp (MoveSpeed, minMoveSpeed, Time.deltaTime / 10f);
-		transform.position -= new Vector3 (MoveSpeed, 0, 0);
-		animator.SetFloat ("run", MoveSpeed / (maxMoveSpeed - minMoveSpeed));
+//		MoveSpeed = Mathf.Lerp (MoveSpeed, minMoveSpeed, Time.deltaTime / 10f);
+//		transform.position -= new Vector3 (MoveSpeed, 0, 0);
+//		animator.SetFloat ("run", MoveSpeed / (maxMoveSpeed - minMoveSpeed));
 	}
 
 }
