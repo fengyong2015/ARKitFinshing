@@ -382,9 +382,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4416036861175034}
   - component: {fileID: 137414897477757680}
+  - component: {fileID: 65944497509400530}
   m_Layer: 0
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -509,7 +510,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1643782213619936}
-  m_LocalRotation: {x: -0.6673572, y: 0.28590697, z: 0.2464088, w: 0.64200795}
+  m_LocalRotation: {x: -0.66735727, y: 0.285907, z: 0.24640882, w: 0.642008}
   m_LocalPosition: {x: -1.2929199, y: -0.03934326, z: 0.32656854}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children: []
@@ -769,6 +770,18 @@ Transform:
   m_Father: {fileID: 4824794174019594}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65944497509400530
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1927324915111578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 3, z: 2}
+  m_Center: {x: -0.27701187, y: -0.51949054, z: 0.015666619}
 --- !u!95 &95898049723206946
 Animator:
   serializedVersion: 3

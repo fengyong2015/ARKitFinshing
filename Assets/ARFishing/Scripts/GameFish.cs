@@ -16,6 +16,8 @@ public class GameFish:MonoBehaviour
 	public FishType fishType;
 	public Animator animator;
 
+	Collider mCollider;
+
 	void Init (FishType pFinshType)
 	{
 		fishType = pFinshType;
@@ -29,6 +31,7 @@ public class GameFish:MonoBehaviour
 			tSpeed = 1;
 		}
 		transform.localScale = Vector3.one * Random.Range (0.02f, 0.04f);
+		transform.gameObject.AddComponent<BoxCollider> ();
 
 		SetMoveSpeed (tSpeed);
 		SetPosition ();
@@ -44,10 +47,15 @@ public class GameFish:MonoBehaviour
 		//球心坐标
 		Vector3 tCenter = Vector3.zero;
 		//球半径
-		float tRandio = Random.Range (2f, 3.5f);
+		float tRandio = Random.Range (3f, 5f);
 		Vector3 tNewpos = Random.insideUnitSphere * tRandio + tCenter;
 		tNewpos.y = Mathf.Abs (tNewpos.y);
 		transform.position = tNewpos;
+	}
+
+	void OnCollisionEnter (Collision other)
+	{
+		Debug.LogError (transform.gameObject.name + "------" + other.gameObject.name);
 	}
 
 }
