@@ -36,31 +36,36 @@ public class GameFish:MonoBehaviour
 		animator = transform.GetComponent<Animator> ();
 	}
 
-	//速度 每秒移动速度
-	float _MoveSpeed = 0.05f;
-	float minMoveSpeed = 0.05f;
-	float maxMoveSpeed = 1f;
+	//	//速度 每秒移动速度
+	//	float _MoveSpeed = 0.05f;
+	//	float minMoveSpeed = 0.05f;
+	//	float maxMoveSpeed = 1f;
+	//
+	//	public float MoveSpeed {
+	//		get {
+	//			return _MoveSpeed;
+	//		}
+	//		set {
+	//			_MoveSpeed = value;
+	//
+	//		}
+	//	}
 
-	public float MoveSpeed {
-		get {
-			return _MoveSpeed;
-		}
-		set { 
-			_MoveSpeed = value;
-
-		}
-	}
-
-	public void OnBeAttacked ()
+	public void SetMoveSpeed (float tSpeed)
 	{
-		MoveSpeed = (MoveSpeed + maxMoveSpeed) / 2;
+		animator.SetFloat ("run", tSpeed);
 	}
 
-	void LateUpdate ()
-	{
-//		MoveSpeed = Mathf.Lerp (MoveSpeed, minMoveSpeed, Time.deltaTime / 10f);
-//		transform.position -= new Vector3 (MoveSpeed, 0, 0);
-//		animator.SetFloat ("run", MoveSpeed / (maxMoveSpeed - minMoveSpeed));
-	}
+	//	public void OnBeAttacked ()
+	//	{
+	//		MoveSpeed = (MoveSpeed + maxMoveSpeed) / 2;
+	//	}
+
+	//	void LateUpdate ()
+	//	{
+	//		MoveSpeed = Mathf.Lerp (MoveSpeed, minMoveSpeed, Time.deltaTime / 10f);
+	//		transform.position -= new Vector3 (MoveSpeed, 0, 0);
+	//		animator.SetFloat ("run", MoveSpeed / (maxMoveSpeed - minMoveSpeed));
+	//	}
 
 }

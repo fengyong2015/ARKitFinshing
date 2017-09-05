@@ -19,16 +19,23 @@ public class TestMove : MonoBehaviour
 	public void Create ()
 	{
 		GameFish tFish = GameFish.Create (tFishTypes [Random.Range (0, tFishTypes.Count)], transform);
-		tFish.gameObject.AddComponent<RatateMove> ();
-		tFish.transform.localScale = Vector3.one * 0.02f;
+		RatateMove tRatateMove = tFish.gameObject.AddComponent<RatateMove> ();
+		float tSpeed = tRatateMove.GetSpeed ();
+		if (tSpeed > 0.5f) {
+			tSpeed = 0;
+		} else {
+			tSpeed = 1;
+		}
+		tFish.SetMoveSpeed (tSpeed);
+		tFish.transform.localScale = Vector3.one * Random.Range (0.02f, 0.04f);
 		SetPosition (tFish.transform);
 	}
 
 	public void Attack ()
 	{
-		for (int i = 0; i < transform.childCount; i++) {
-			transform.GetChild (i).gameObject.SendMessage ("OnBeAttacked");
-		}
+//		for (int i = 0; i < transform.childCount; i++) {
+//			transform.GetChild (i).gameObject.SendMessage ("OnBeAttacked");
+//		}
 	}
 
 	void SetPosition (Transform pTrans)

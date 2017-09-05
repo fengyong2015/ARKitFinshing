@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class RatateMove : MonoBehaviour
 {
-	float mSpeed = 10f;
+	float mSpeed = 10f, mMinSpeed = 5, mMaxSpeed = 20;
 	Vector3 mOriginPosition;
-	// Use this for initialization
+
 	void Start ()
 	{
 		mOriginPosition = transform.position;
-		mSpeed = Random.Range (5, 10);
+		mSpeed = Random.Range (mMinSpeed, mMaxSpeed);
 	}
 
 
@@ -20,6 +20,11 @@ public class RatateMove : MonoBehaviour
 		Vector3 tCenter = new Vector3 (0, transform.position.y, 0);
 		transform.RotateAround (tCenter, Vector3.up, Time.deltaTime * mSpeed);
 		transform.LookAt (tCenter, Vector3.up);
+	}
 
+	public float GetSpeed ()
+	{
+//		return (mSpeed - mMinSpeed) / (mMaxSpeed - mMinSpeed);
+		return (mSpeed - mMinSpeed) / mMaxSpeed;
 	}
 }
