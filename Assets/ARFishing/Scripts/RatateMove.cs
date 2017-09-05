@@ -13,8 +13,6 @@ public class RatateMove : MonoBehaviour
 		mSpeed = Random.Range (mMinSpeed, mMaxSpeed);
 	}
 
-
-	// Update is called once per frame
 	void Update ()
 	{
 		Vector3 tCenter = new Vector3 (0, transform.position.y, 0);
@@ -24,7 +22,6 @@ public class RatateMove : MonoBehaviour
 
 	public float GetSpeed ()
 	{
-//		return (mSpeed - mMinSpeed) / (mMaxSpeed - mMinSpeed);
 		return (mSpeed - mMinSpeed) / mMaxSpeed;
 	}
 }
