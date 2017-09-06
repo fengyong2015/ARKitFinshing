@@ -28,7 +28,7 @@ public class FinishManager : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown (0)) {
 			
-			FishingNetControl.Create (Input.mousePosition, m_Trans.position.z);
+			FishingNetControl.Create (Input.mousePosition, m_Trans.position);
 		}
 	}
 

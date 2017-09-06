@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishingNetControl : MonoBehaviour
 {
-	public static FishingNetControl Create (Vector3 pMouse, float pZ)
+	public static FishingNetControl Create (Vector3 pMouse, Vector3 pZ)
 	{
 		GameObject tFishingNet = Resources.Load<GameObject> ("yuwang");
 		tFishingNet = Instantiate (tFishingNet);
@@ -17,28 +17,26 @@ public class FishingNetControl : MonoBehaviour
 	}
 
 	Vector3 mTargetPos;
-	Vector3 mOriginPos;
 
-	public void Init (Vector3 pMouse, float pZ)
+	public void Init (Vector3 pMouse, Vector3 pZ)
 	{
-		mOriginPos = Camera.main.transform.position;
-		transform.position = mOriginPos;
+		Vector3 tScreenPos = Camera.main.WorldToScreenPoint (pZ);
+
+		transform.position = Camera.main.ScreenToWorldPoint (pMouse);
 		transform.rotation = Camera.main.transform.rotation;
-		mTargetPos = Camera.main.ScreenToWorldPoint (new Vector3 (pMouse.x, pMouse.y, pZ));
-		mTargetPos.z = pZ;
-	}
 
-	void Update ()
-	{
-		transform.position = Vector3.Lerp (transform.position, mTargetPos, Time.deltaTime / 3f);
-		if (Vector3.Distance (mTargetPos, transform.position) < 2f) {
+		pMouse.z = tScreenPos.z;
+		mTargetPos = Camera.main.ScreenToWorldPoint (pMouse);
+
+		LeanTween.move (gameObject, mTargetPos, 2f).setOnComplete (() => {
 			Destroy (gameObject);
-		}
+		});
 	}
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag.Contains ("fish")) {
+		if (other.tag.Equals ("fish")) {
+			LeanTween.cancel (gameObject);
 			Destroy (transform.gameObject);
 			Destroy (other.transform.gameObject);
 		}
