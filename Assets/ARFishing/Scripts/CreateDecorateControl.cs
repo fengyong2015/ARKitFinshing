@@ -3,41 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.iOS;
 
-public class CreateDecorateControl : MonoBehaviour {
+public class CreateDecorateControl : MonoBehaviour
+{
 
 
-    void Start(){
+	void Start ()
+	{
 
-        UnityARSessionNativeInterface.ARAnchorAddedEvent += OnAnchorAdder;
-    }
+		UnityARSessionNativeInterface.ARAnchorAddedEvent += OnAnchorAdder;
+	}
 
-    void OnDestory(){
+	void OnDestory ()
+	{
 
-        UnityARSessionNativeInterface.ARAnchorAddedEvent -= OnAnchorAdder;
+		UnityARSessionNativeInterface.ARAnchorAddedEvent -= OnAnchorAdder;
 
-    }
+	}
 
-    void OnAnchorAdder(ARPlaneAnchor anchorData){
+	void OnAnchorAdder (ARPlaneAnchor anchorData)
+	{
 
-        GameObject decorate = Instantiate(Resources.Load(getRandomDecorate()) as GameObject);
-        decorate.transform.parent = transform;
-        decorate.transform.position = UnityARMatrixOps.GetPosition (anchorData.transform);
-        decorate.transform.rotation = UnityARMatrixOps.GetRotation (anchorData.transform);
-        decorate.transform.localScale = Vector3.one * 10f;
-    }
+		GameObject decorate = Instantiate (Resources.Load (getRandomDecorate ()) as GameObject);
+		decorate.transform.parent = transform;
+		decorate.transform.position = UnityARMatrixOps.GetPosition (anchorData.transform);
+		decorate.transform.rotation = UnityARMatrixOps.GetRotation (anchorData.transform);
+		decorate.transform.localScale = Vector3.one * 10f;
 
-    string getRandomDecorate(){
+		GameObject bubble = Instantiate (Resources.Load ("bubble") as GameObject);
+		bubble.transform.parent = decorate.transform;
 
-        string[] allDecorate = new string[]
-        {
-            "haicao_001",
-            "haicao_002",
-            "haidai",
-            "haixing",
-            "haizhe",
-            "shitou"
-        };
+	}
 
-        return "decorate/" + allDecorate [Random.Range(0, allDecorate.Length)];
-    }
+	string getRandomDecorate ()
+	{
+
+		string[] allDecorate = new string[] {
+			"haicao_001",
+			"haicao_002",
+			"haidai",
+			"haixing",
+			"haizhe",
+			"shitou"
+		};
+
+		return "decorate/" + allDecorate [Random.Range (0, allDecorate.Length)];
+	}
 }

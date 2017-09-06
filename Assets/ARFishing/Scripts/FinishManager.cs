@@ -39,4 +39,8 @@ public class FinishManager : MonoBehaviour
 	}
 
 
+	void TestLeanTween ()
+	{
+	}
+
 }
