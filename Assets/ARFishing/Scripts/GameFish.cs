@@ -32,7 +32,7 @@ public class GameFish:MonoBehaviour
 		}
 		transform.localScale = Vector3.one * Random.Range (0.02f, 0.04f);
 		SetMoveSpeed (tSpeed);
-		SetPosition ();
+		SetPosition (pFinshType);
 	}
 
 	public void SetMoveSpeed (float tSpeed)
@@ -40,12 +40,16 @@ public class GameFish:MonoBehaviour
 		animator.SetFloat ("run", tSpeed);
 	}
 
-	void SetPosition ()
+	void SetPosition (FishType pFinshType)
 	{
 		//球心坐标
-		Vector3 tCenter = Vector3.zero;
+		Vector3 tCenter = new Vector3 (0, -1f, 0);
 		//球半径
 		float tRandio = Random.Range (1, 3f);
+		if (pFinshType == FishType.shayu || pFinshType == FishType.jinqiangyu) {
+			tRandio = 3;
+		}
+
 		Vector3 tNewpos = Random.insideUnitSphere * tRandio + tCenter;
 		tNewpos.y = Mathf.Abs (tNewpos.y);
 		transform.position = tNewpos;
