@@ -31,8 +31,6 @@ public class GameFish:MonoBehaviour
 			tSpeed = 1;
 		}
 		transform.localScale = Vector3.one * Random.Range (0.02f, 0.04f);
-		transform.gameObject.AddComponent<BoxCollider> ();
-
 		SetMoveSpeed (tSpeed);
 		SetPosition ();
 	}
@@ -47,7 +45,7 @@ public class GameFish:MonoBehaviour
 		//球心坐标
 		Vector3 tCenter = Vector3.zero;
 		//球半径
-		float tRandio = Random.Range (3f, 5f);
+		float tRandio = Random.Range (1, 3f);
 		Vector3 tNewpos = Random.insideUnitSphere * tRandio + tCenter;
 		tNewpos.y = Mathf.Abs (tNewpos.y);
 		transform.position = tNewpos;
