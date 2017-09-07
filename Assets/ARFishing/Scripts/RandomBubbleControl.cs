@@ -8,7 +8,7 @@ public class RandomBubbleControl : MonoBehaviour
 	GameObject m_Bubble;
 
 	[SerializeField]
-	Transform[] m_Parent;
+	Transform m_Orign;
 
 	void Start ()
 	{
@@ -18,16 +18,20 @@ public class RandomBubbleControl : MonoBehaviour
 	IEnumerator ProduceBubble ()
 	{
 		while (true) {
-			yield return new WaitForSeconds (Random.Range (15, 30));
+//			yield return new WaitForSeconds (Random.Range (15, 30));
+			yield return new WaitForSeconds (Random.Range (5, 10));
 			StartCoroutine (CreateBubble ());
 		}
 	}
 
 	IEnumerator CreateBubble ()
 	{
-		Transform tTrans = m_Parent [Random.Range (0, m_Parent.Length)];
+//		Transform tTrans = m_Parent [Random.Range (0, m_Parent.Length)];
+		float tZ = m_Orign.transform.position.z;
+		Vector3 tV3 = Camera.main.ViewportToWorldPoint (new Vector3 (Random.value, 0, tZ));
+
 		GameObject bubble = Instantiate (m_Bubble);
-		bubble.transform.position = tTrans.position;
+		bubble.transform.position = tV3;
 		yield break;
 		yield return new WaitForSeconds (Random.Range (30, 50));
 		Destroy (bubble);

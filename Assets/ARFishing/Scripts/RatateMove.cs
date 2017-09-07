@@ -9,6 +9,10 @@ public class RatateMove : MonoBehaviour
 
 	bool tDir = false;
 
+	bool _IsShowing = false;
+
+	public bool isShowing{ get { return _IsShowing; } set { _IsShowing = value; } }
+
 	void Start ()
 	{
 		mOriginPosition = transform.position;
@@ -18,16 +22,26 @@ public class RatateMove : MonoBehaviour
 		}
 	}
 
+	public Transform ScreenCenter;
+
 	void Update ()
 	{
-		Vector3 tCenter = new Vector3 (0, transform.position.y, 0);
-		if (tDir) {
-			transform.RotateAround (tCenter, Vector3.up, Time.deltaTime * mSpeed);
-			transform.forward = tCenter - transform.position;
+		if (isShowing) {
+			Vector3 tShowingPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, ScreenCenter.position.z));
+			transform.position = Vector3.MoveTowards (transform.position, tShowingPos, 0.01f);
+			transform.forward = Camera.main.transform.position - transform.position;
+			transform.Rotate (new Vector3 (0, 90, 0));
 		} else {
-			transform.RotateAround (tCenter, Vector3.down, Time.deltaTime * mSpeed);
-			transform.forward = transform.position - tCenter;
+			Vector3 tCenter = new Vector3 (0, transform.position.y, 0);
+			if (tDir) {
+				transform.RotateAround (tCenter, Vector3.up, Time.deltaTime * mSpeed);
+				transform.forward = tCenter - transform.position;
+			} else {
+				transform.RotateAround (tCenter, Vector3.down, Time.deltaTime * mSpeed);
+				transform.forward = transform.position - tCenter;
+			}
 		}
+
 	}
 
 	public float GetSpeed ()

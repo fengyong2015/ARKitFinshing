@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class GameFish:MonoBehaviour
 {
-	public static GameFish Create (FishType pFinshType, Transform pTrans)
+	public static GameFish Create (FishType pFinshType, Transform pTrans, Transform pScreenCenter)
 	{
 		string tFishPath = string.Format ("fish/{0}", pFinshType.ToString ());
 		GameObject tFish = Resources.Load<GameObject> (tFishPath);
 		tFish = Instantiate (tFish, pTrans);
 		GameFish tGameFish = tFish.AddComponent<GameFish> ();
-		tGameFish.Init (pFinshType);
+		tGameFish.Init (pFinshType, pScreenCenter);
 		return tGameFish;
 	}
 
@@ -17,14 +17,18 @@ public class GameFish:MonoBehaviour
 	public Animator animator;
 
 	Collider mCollider;
+	[HideInInspector]
+	public  RatateMove mRatateMove;
 
-	void Init (FishType pFinshType)
+	void Init (FishType pFinshType, Transform pStateZ)
 	{
 		fishType = pFinshType;
 		animator = transform.GetComponent<Animator> ();
 
-		RatateMove tRatateMove = transform.gameObject.AddComponent<RatateMove> ();
-		float tSpeed = tRatateMove.GetSpeed ();
+		mRatateMove = transform.gameObject.AddComponent<RatateMove> ();
+		mRatateMove.ScreenCenter = pStateZ;
+		mCollider = transform.GetComponentInChildren<Collider> ();
+		float tSpeed = mRatateMove.GetSpeed ();
 		if (tSpeed > 0.5f) {
 			tSpeed = 0;
 		} else {

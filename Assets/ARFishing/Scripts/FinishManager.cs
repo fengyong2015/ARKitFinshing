@@ -7,6 +7,9 @@ public class FinishManager : MonoBehaviour
 	[SerializeField]
 	Transform m_Trans;
 
+	[SerializeField]
+	Transform m_ScreenCenter;
+
 	List<FishType> tFishTypes = new List<FishType> (System.Enum.GetValues (typeof(FishType))as FishType[]);
 
 	void Start ()
@@ -20,7 +23,7 @@ public class FinishManager : MonoBehaviour
 
 	public void Create ()
 	{
-		GameFish tFish = GameFish.Create (tFishTypes [Random.Range (0, tFishTypes.Count)], transform);
+		GameFish tFish = GameFish.Create (tFishTypes [Random.Range (0, tFishTypes.Count)], transform, m_ScreenCenter);
 //		GameFish tFish = GameFish.Create (FishType.xiaochouyu, transform);
 	}
 
