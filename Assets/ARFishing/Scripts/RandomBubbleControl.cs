@@ -18,8 +18,8 @@ public class RandomBubbleControl : MonoBehaviour
 	IEnumerator ProduceBubble ()
 	{
 		while (true) {
-//			yield return new WaitForSeconds (Random.Range (15, 30));
-			yield return new WaitForSeconds (Random.Range (5, 10));
+			yield return new WaitForSeconds (Random.Range (15, 30));
+//			yield return new WaitForSeconds (Random.Range (5, 10));
 			StartCoroutine (CreateBubble ());
 		}
 	}
@@ -33,7 +33,7 @@ public class RandomBubbleControl : MonoBehaviour
 		GameObject bubble = Instantiate (m_Bubble);
 		bubble.transform.position = tV3;
 		yield break;
-		yield return new WaitForSeconds (Random.Range (30, 50));
+		yield return new WaitForSeconds (Random.Range (30, 40));
 		Destroy (bubble);
 	}
 }

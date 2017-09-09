@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6f0a61460368140cd9e33b02c3bdfb72
+timeCreated: 1504749926
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Senty Cream Puff ?????
+  fontNames:
+  - Senty Cream Puff ?????
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
