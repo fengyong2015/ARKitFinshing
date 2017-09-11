@@ -12,11 +12,14 @@ public class FishingNetControl : MonoBehaviour
 		tFishingNet.transform.localEulerAngles = new Vector3 (-90f, 0, -180f);
 		tFishingNet.name = "yuwang";
 		FishingNetControl tCtrl = tFishingNet.GetComponent<FishingNetControl> ();
-		tCtrl.Init (pMouse, pZ);
+        tCtrl.netAnimation = tFishingNet.GetComponentInChildren<Animation>();
+        tCtrl.Init (pMouse, pZ);
+        GameData.Instance.reduceCoin(30);
 		return tCtrl;
 	}
 
 	Vector3 mTargetPos;
+    Animation netAnimation;
 
 	public void Init (Vector3 pMouse, Vector3 pZ)
 	{
@@ -27,6 +30,7 @@ public class FishingNetControl : MonoBehaviour
 
 		pMouse.z = tScreenPos.z;
 		mTargetPos = Camera.main.ScreenToWorldPoint (pMouse);
+        netAnimation.Play("open");
 
 		LeanTween.move (gameObject, mTargetPos, 2f).setOnComplete (() => {
 			Destroy (gameObject);
@@ -36,6 +40,8 @@ public class FishingNetControl : MonoBehaviour
 	void OnTriggerEnter (Collider other)
 	{
 		LeanTween.cancel (gameObject);
+        netAnimation.Play("close");
+
 		if (other.tag.Equals ("fish")) {
 			gameObject.transform.SetParent (other.transform);
 			FlyGold (other.transform.parent.gameObject);

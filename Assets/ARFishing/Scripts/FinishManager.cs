@@ -46,4 +46,9 @@ public class FinishManager : MonoBehaviour
 	{
 	}
 
+    public void BackToMap(){
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
 }

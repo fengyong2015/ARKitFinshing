@@ -67,6 +67,8 @@ public class GameFish:MonoBehaviour
 
 	public IEnumerator FishDie ()
 	{
+        Debug.LogError("----------on collider fish");
+        GameData.Instance.addCoin(50);
 		mRatateMove.StopMove = true;
 		animator.SetTrigger ("die");
 		yield return new WaitForEndOfFrame ();
