@@ -35,10 +35,18 @@ public class FishingNetControl : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
+		LeanTween.cancel (gameObject);
 		if (other.tag.Equals ("fish")) {
-			LeanTween.cancel (gameObject);
-			Destroy (transform.gameObject);
-			Destroy (other.transform.gameObject);
+			gameObject.transform.SetParent (other.transform);
+			FlyGold (other.transform.parent.gameObject);
+		}
+	}
+
+	void FlyGold (GameObject pGo)
+	{
+		GameFish tGameFish = pGo.GetComponentInChildren<GameFish> ();
+		if (tGameFish != null) {
+			StartCoroutine (tGameFish.FishDie ());
 		}
 	}
 }

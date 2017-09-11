@@ -1,5 +1,5 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class GameFish:MonoBehaviour
 {
@@ -19,6 +19,7 @@ public class GameFish:MonoBehaviour
 	Collider mCollider;
 	[HideInInspector]
 	public  RatateMove mRatateMove;
+
 
 	void Init (FishType pFinshType, Transform pStateZ)
 	{
@@ -64,4 +65,16 @@ public class GameFish:MonoBehaviour
 		Debug.LogError (transform.gameObject.name + "------" + other.gameObject.name);
 	}
 
+	public IEnumerator FishDie ()
+	{
+		mRatateMove.StopMove = true;
+		animator.SetTrigger ("die");
+		yield return new WaitForEndOfFrame ();
+		yield return new WaitForEndOfFrame ();
+		yield return new WaitForEndOfFrame ();
+		while (animator.GetCurrentAnimatorStateInfo (0).normalizedTime < 0.95f) {
+			yield return new WaitForEndOfFrame ();
+		}
+		Destroy (gameObject);
+	}
 }

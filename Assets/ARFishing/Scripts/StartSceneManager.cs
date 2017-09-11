@@ -18,6 +18,6 @@ public class StartSceneManager : MonoBehaviour
 
 	public void OnSingleMintleClick ()
 	{
-		SceneManager.LoadScene (3);
+//		SceneManager.LoadScene (3);
 	}
 }
