@@ -29,8 +29,8 @@ public class CreateDecorateControl : MonoBehaviour
 		decorate.transform.rotation = UnityARMatrixOps.GetRotation (anchorData.transform);
 		decorate.transform.localScale = Vector3.one * 10f;
 
-		GameObject bubble = Instantiate (Resources.Load ("bubble") as GameObject);
-		bubble.transform.parent = decorate.transform;
+//		GameObject bubble = Instantiate (Resources.Load ("bubble") as GameObject);
+//		bubble.transform.parent = decorate.transform;
 
 	}
 

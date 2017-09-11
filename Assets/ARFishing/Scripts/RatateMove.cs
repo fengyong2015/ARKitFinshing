@@ -32,7 +32,7 @@ public class RatateMove : MonoBehaviour
 			if (isShowing) {
 				Vector3 tShowingPos = Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, ScreenCenter.position.z));
 				transform.position = Vector3.MoveTowards (transform.position, tShowingPos, 0.01f);
-				transform.forward = Camera.main.transform.position - transform.position;
+				transform.forward = Vector3.Lerp (transform.forward, Camera.main.transform.position - transform.position, Time.deltaTime);
 				transform.Rotate (new Vector3 (0, 90, 0));
 			} else {
 				Vector3 tCenter = new Vector3 (0, transform.position.y, 0);
